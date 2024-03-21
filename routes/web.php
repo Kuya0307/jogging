@@ -22,6 +22,7 @@ Route::controller(JogController::class)->group(function(){
     Route::get('user_reg', 'user_reg');
     Route::get('month_look', 'month_look');
     Route::get('jog_reg', 'jog_reg');
+    Route::post('jog_create', 'jog_create');
     Route::get('view', 'view');
     Route::get('edit', 'edit');
     Route::get('report', 'report');
