@@ -3,16 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use app\Models\jogging;
+use Illuminate\Http\Response;
+use App\Models\Jogging;
+use Illuminate\Support\Facades\Storage;
 
 class JogController extends Controller
 {
-    //ログイン画面
-    public function login()
-    {
-        return view('login');
-    }
-
     public function user_reg()
     {
         return view('user_reg');
@@ -28,9 +24,34 @@ class JogController extends Controller
         return view('jog_reg');
     }
 
+    public function jog_create(Request $request)
+    {
+        $this->validate($request, Jogging::$rules, Jogging::$messages);
+        //画像があるときパスを保存、ないなら「no image」と保存
+        if ($request->hasFile('course_image_pass')) {
+            $file = $request->file('course_img_pass');
+            $file_name = $file->getClientOriginalName();
+        } else {
+            $file_name = "no image";
+        }
+        $Jogging = new Jogging;
+        $Jogging->user_id = 1;
+        $Jogging->date = $request->date;
+        $Jogging->jog_env = $request->jog_env;
+        $Jogging->distance = $request->distance;
+        $Jogging->jog_time = $request->jog_time;
+        $Jogging->calorie = $request->calorie;
+        $Jogging->delete_flag = 0;
+        $Jogging->course_img_pass = $file_name;
+        $Jogging->save();
+        $file->storeAs('public', $file_name);
+        return redirect('/month_look'); //理想は前にいた画面にリダイレクトしたいが、一旦これで。
+    }
     public function view()
     {
-        return view('view');
+        //日付とユーザで一致
+        $jog_data = Jogging::where('user_id', 1)->where('date', '2024-03-21')->get();
+        return view('view', ['jog_data' => $jog_data]);
     }
     #編集機能
     public function edit($id)

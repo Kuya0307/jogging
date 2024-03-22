@@ -7,22 +7,28 @@
 </head>
 <body>
     <main>
+        @foreach($jog_data as $jog)
         <div>
-            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7QEZuxLo_zvFCMKLbMyH5pFU-LihRIeLXMY-QHxEMIgeNOVhvKeSMiNsIxrzNFHMsUv0nxYYl_b5RVqLtJcRgJokPMn8IVpkRDKfnrMr1dsoghyXHGXRakLCV1wX0FBGlltS5W34zMGV4/s400/no_image_square.jpg">
+        <img src="{{asset('storage/' . $jog->course_img_pass)}}">
             <a>戻る</a>
         </div>
 
         <div>
             <h1>
-                [日付]<span>の記録</span>
+                {{$jog->date}}<span>の記録</span>
             </h1>
-            <p>場所<span>[屋外/屋内]</span></p>
-            <p>距離<span>[]<span>km</span></span></p>
-            <p>時間<span>[]</span></p>
-            <p>消費カロリー<span>[]<span>kcal<span></span></p>
+            @if($jog->jog_env == 0)
+                <p>場所<span>屋内</span></p>
+            @else
+                <p>場所<span>屋外</span></p>
+            @endif
+            <p>距離<span>{{$jog->distance}}<span>km</span></span></p>
+            <p>時間<span>{{$jog->jog_time}}</span></p>
+            <p>消費カロリー<span>{{$jog->calorie}}<span>kcal<span></span></p>
             <a>編集</a>
             <a>削除</a>
         </div>
+        @endforeach
     </main>
 </body>
 </html>
