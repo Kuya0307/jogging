@@ -1,0 +1,60 @@
+@charset "utf-8";
+
+*,  *::before, *::after {
+    box-sizing: border-box;
+    font-family: 'Noto Sans Jp', sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+header {
+    background-color: #4A4A4A;
+    color: white;
+    width: 100%;
+    padding: 0 50px;
+    display: flex;
+	align-items:center;
+}
+
+header h1 {
+    margin: 10px 0;
+}
+
+header .right-side {
+    margin-left: auto;
+    display: flex;
+    height: 30px;
+}
+
+header .right-side span {
+    margin: 0 5px;
+    font-size: 30px;
+}
+
+header .right-side a {
+    color: white;
+    text-decoration: none;
+}
+
+header .right-side a:hover {
+    color: rgb(80, 80, 255);
+}
+
+header .right-side .icon-menu {
+    padding-right: 10px;
+}
+
+header .right-side .user-menu {
+    border-left: 2px solid white;
+    padding-left: 10px;
+}
+
+header .right-side .user-name {
+    font-size: 20px;
+}
+
+.txt-red {
+    color: red;
+}
