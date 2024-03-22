@@ -54,15 +54,24 @@ class JogController extends Controller
         return view('view', ['jog_data' => $jog_data]);
     }
     #編集機能
-    public function edit($id)
+    public function edit(Request $request)
     {
-        $jogging = Jogging::find($id);
+        $jogging = Jogging::where('id', $request->id)->first();
         return view('edit', ['jogging' => $jogging]);
     }
     #編集機能の作成
     public function edit_function(Request $request)
     {
-        $id = $request->input('id');
+        $param = [
+            'date' => $request->date,
+            'jog_env' => $request->jog_env,
+            'distance' => $request->distance,
+            'jog_time' => $request->jog_time,
+            'calorie' => $request->calorie,
+            'course_img_pass' => $request->course_img_pass,
+        ];
+        Jogging::where('ID', $request->id)->update($param);
+        return redirect('/month_look');
     }
     public function report()
     {
