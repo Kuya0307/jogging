@@ -24,7 +24,7 @@ class JogController extends Controller
     public function jog_create(Request $request){
         $this->validate($request,Jogging::$rules,Jogging::$messages);
         //画像があるときパスを保存、ないなら「no image」と保存
-        if($request->hasFile('course_image_pass')){
+        if($request->hasFile('course_img_pass')){
             $file = $request->file('course_img_pass');
             $file_name = $file->getClientOriginalName();
         }else{
