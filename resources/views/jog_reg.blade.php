@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.jogging')
 
 @section('title','ページのタイトル')
 
@@ -19,7 +19,7 @@
         @endif
         <form action="jog_create" method="post" enctype="multipart/form-data">
             @csrf
-           <span class="required">日付*</span> 
+            <span class="required">日付*</span> 
             <input type="date" name="date"><br>
 
             場所

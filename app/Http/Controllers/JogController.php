@@ -45,7 +45,7 @@ class JogController extends Controller
     }
     public function view(){
         //日付とユーザで一致
-        $jog_data = Jogging::where('user_id',1)->where('date','2024-03-22')->where('delete_flag',0)->get();
+        $jog_data = Jogging::where('user_id',1)->where('date','2024-03-23')->where('delete_flag',0)->get();
         return view('view',['jog_data'=>$jog_data]);
     }
 

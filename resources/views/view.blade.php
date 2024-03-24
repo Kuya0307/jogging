@@ -7,25 +7,44 @@
     @endsection
     <main id="view">
         @foreach($jog_data as $jog)
-        <div>
-        <img src="{{asset('storage/' . $jog->course_img_pass)}}">
-            <a class="btn-back">戻る</a>
+        <div class="left-side">
+            <img src="{{asset('storage/' . $jog->course_img_pass)}}">
+            <a href="#" class="btn btn-back">戻る</a>
         </div>
 
-        <div>
+        <div class="right-side">
             <h1>
                 {{$jog->date}}<span class="h1-smaller">の記録</span>
             </h1>
-            @if($jog->jog_env == 0)
-                <p>場所<span>屋内</span></p>
-            @else
-                <p>場所<span>屋外</span></p>
-            @endif
-            <p>距離<span>{{$jog->distance}}<span>km</span></span></p>
-            <p>時間<span>{{$jog->jog_time}}</span></p>
-            <p>消費カロリー<span>{{$jog->calorie}}<span>kcal<span></span></p>
-            <a class="btn-edit">編集</a>
-            <a class="btn-delete">削除</a>
+            <table>
+                @if($jog->jog_env == 0)
+                <tr>
+                    <th>場所</th>
+                    <td>屋内</td>
+                </tr>
+                @else
+                <tr>
+                    <th>場所</th>
+                    <td>屋外</td>
+                </tr>
+                @endif
+                <tr>
+                    <th>距離</th>
+                    <td>{{$jog->distance}}<span>km</span></td>
+                </tr>
+                <tr>
+                    <th>時間</th>
+                    <td>{{$jog->jog_time}}</td>
+                </tr>
+                <tr>
+                    <th>消費カロリー</th>
+                    <td>{{$jog->calorie}}<span>kcal<span></td>
+                </tr>
+            </table>
+            <div class="button-container">
+                <a href="#" class="btn btn-edit">編集</a>
+                <a href="#" class="btn btn-delete">削除</a>
+            </div>
         </div>
         @endforeach
     </main>

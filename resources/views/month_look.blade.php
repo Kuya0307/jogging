@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.jogging')
 
 @section('month_look','月別一覧')
 

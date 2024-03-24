@@ -5,32 +5,41 @@
     font-family: 'Noto Sans Jp', sans-serif;
 }
 
-body {
-    margin: 0;
+:root {
+    --main-color: #4A4A4A;
+    --sub-color:#EFEFEF;
+    --blue: #00b2ff;
+    --red: #ff4b00;
 }
 
+body {
+    margin: 0;
+    background-color: var(--sub-color);
+}
+
+/* ここからヘッダー */
 header {
-    background-color: #4A4A4A;
-    color: white;
-    width: 100%;
-    padding: 0 50px;
     display: flex;
 	align-items:center;
+    width: 100%;
+    padding: 0 48px;
+    background-color: var(--main-color);
+    color: white;
 }
 
 header h1 {
-    margin: 10px 0;
+    margin: 8px 0;
 }
 
 header .right-side {
-    margin-left: auto;
     display: flex;
-    height: 30px;
+    height: 28px;
+    margin-left: auto;
 }
 
 header .right-side span {
     margin: 0 5px;
-    font-size: 30px;
+    font-size: 28px;
 }
 
 header .right-side a {
@@ -39,22 +48,47 @@ header .right-side a {
 }
 
 header .right-side a:hover {
-    color: rgb(80, 80, 255);
+    color: var(--blue);
 }
 
 header .right-side .icon-menu {
-    padding-right: 10px;
+    padding-right: 12px;
 }
 
 header .right-side .user-menu {
+    padding-left: 12px;
     border-left: 2px solid white;
-    padding-left: 10px;
 }
 
-header .right-side .user-name {
-    font-size: 20px;
+header .right-side .user-menu span {
+    margin: 0;
+}
+
+header .right-side .user-menu .user-name {
+    margin-right: 24px;
+    font-size: 16px;
+}
+/* ここまでヘッダー */
+
+.material-symbols-outlined { /* アイコン */
+    display: inline-flex;
+    vertical-align: middle;
 }
 
 .txt-red {
-    color: red;
+    color: var(--red);
+}
+
+.btn {
+    display: block;
+    width: 120px;
+    padding: 8px;
+    border-radius: 100px;
+    color: black;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn:active {
+    filter: brightness(0.9);
 }

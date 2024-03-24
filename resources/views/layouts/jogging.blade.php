@@ -8,6 +8,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/all_style.css">
+    <link rel="stylesheet" href="css/view.css">
 
     <!-- フォント -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,7 +40,7 @@
             <div class="user-menu">
                 <span class="material-symbols-outlined">person</span>
                 <span class="user-name">[ユーザ名]</span>
-                <span class="material-symbols-outlined txt-red">logout</span> <!-- ログアウト機能 -->
+                <a href="#"><span class="material-symbols-outlined txt-red">logout</span></a> <!-- ログアウト機能 -->
             </div>
         </div>
     </header>
