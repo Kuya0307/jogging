@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
+    <!-- <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
     <script>
 
       document.addEventListener('DOMContentLoaded', function() {
@@ -15,7 +15,7 @@
         calendar.render();
       });
 
-    </script>
+    </script> -->
     <title>@yield('title')</title>
 </head>
 
