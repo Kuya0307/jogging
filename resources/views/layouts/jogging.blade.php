@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="css/view.css">
     <link rel="stylesheet" href="css/config.css">
 
+
     <!-- フォント -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
