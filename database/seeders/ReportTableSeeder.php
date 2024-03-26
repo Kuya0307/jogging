@@ -22,6 +22,7 @@ class ReportTableSeeder extends Seeder
             'delete_flag' => "0",
         ];
         DB::table('report')->insert($param);
+
         $param = [
             'genre' => "1",
             'contents' => "ターミネーター",
