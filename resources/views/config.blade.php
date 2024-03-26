@@ -2,7 +2,6 @@
 
 @section('config','設定')
 <script src="{{ asset('js/script.js') }}"></script>
-<link rel="stylesheet" href="css/config.css">
 @section('content')
 @section('header')
 @endsection
