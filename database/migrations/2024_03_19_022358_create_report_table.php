@@ -14,9 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('report', function (Blueprint $table) {
-            $table->id();
-            $table->integer('genre')->unique();
-            $table->string('contents')->unique();
+            $table->increments('ID');
+            $table->integer('genre');
+            $table->string('contents');
             $table->integer('con_num');
             $table->tinyInteger('delete_flag')->default(0);
             $table->timestamps();
