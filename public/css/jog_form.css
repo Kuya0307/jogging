@@ -16,8 +16,9 @@ body{
     margin: auto;
 }
 
-span {
-    color: red;
+.required {
+    color: var(--red);
+    margin-left: 5px;
 }
 
 
@@ -49,23 +50,8 @@ td{
     padding-right: 4rem;
 }
  
-.cancel{
-    margin-top: 3rem;
-    margin-right: 2rem;
-    border-radius: 20px;
-    border: solid 1px darkgray;
-    background-color: white;
-    font-size: 15px;
-    width: 7rem;
-    height: 2.5rem;
-}
 
-.btn-primary{
-    border-radius: 20px;
-    background-color: #00BFFF;
+.btn-submit{
+    background-color: var(--blue);
     color: white;
-    font-size: 15px;
-    border: none;
-    width: 7rem;
-    height: 2.5rem;
 }
