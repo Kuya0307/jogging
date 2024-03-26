@@ -18,4 +18,12 @@ class Jogging extends Model
         'date.required' => '日付を入力してください',
         'distance.required' => '距離を入力してください',
     ];
+
+    public function user(){
+        return $this->belongsTo('App\Models\User');
+    }
+
+    public function scopeDate($query,$date){
+        return $query->where('date',$date);
+    }
 }
