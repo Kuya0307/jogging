@@ -21,6 +21,8 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/all_style.css">
     <link rel="stylesheet" href="css/view.css">
+    <link rel="stylesheet" href="css/jog_form.css">
+
 
     <!-- フォント -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
