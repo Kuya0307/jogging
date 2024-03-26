@@ -1,7 +1,8 @@
 @charset "UTF-8";
 
 
-body{
+#jog_reg body,
+#edit body{
     text-align: center;
 }
 
@@ -22,7 +23,8 @@ body{
 }
 
 
-table,th, td {
+#jog_reg table,th, td,
+#edit table,th, td {
     border-top: solid 1px lightgray;
     border-bottom: solid 1px lightgray;
     padding: 10px;
@@ -30,14 +32,17 @@ table,th, td {
 }
 
 
-table{
+#jog_reg table,
+#edit table{
     margin-top: 3rem;
     width: 100%;
     table-layout: fixed;
+    
 }
 
 
-th{
+#jog_reg th,
+#edit th{
     font-size: 20px;
     font-weight: normal;
     text-align: left;
@@ -46,7 +51,8 @@ th{
     color: rgb(167, 166, 166);
 }
 
-td{
+#jog_reg td,
+#edit td{
     padding-right: 4rem;
 }
  
