@@ -73,10 +73,6 @@
 /* ここからボタン */
 #view .btn-back {
     margin-top: 32px;
-    border: 1px solid lightgray;
-    background-color: white;
-    color: black;
-    font-size: 16px;
 }
 
 #view .btn-back::before {
@@ -95,11 +91,6 @@
 
 #view .btn-edit::before {
     content:"edit";
-    font-family:"Material Symbols Outlined";
-
-    margin-right: 8px;
-    font-size: 24px;
-    vertical-align: -6px;
 }
 
 #view .btn-delete {
@@ -109,8 +100,11 @@
 
 #view .btn-delete::before {
     content:"delete";
-    font-family:"Material Symbols Outlined";
+}
 
+#view .btn-edit::before,
+#view .btn-delete::before {
+    font-family:"Material Symbols Outlined";
     margin-right: 8px;
     font-size: 24px;
     vertical-align: -6px;
