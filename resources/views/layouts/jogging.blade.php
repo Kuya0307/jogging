@@ -7,13 +7,13 @@
     <!-- <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
     <script>
 
-      document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
-          initialView: 'dayGridMonth'
+        initialView: 'dayGridMonth'
         });
         calendar.render();
-      });
+    });
 
     </script> -->
     <title>@yield('title')</title>
@@ -21,6 +21,8 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/all_style.css">
     <link rel="stylesheet" href="css/view.css">
+    <link rel="stylesheet" href="css/config.css">
+
 
     <!-- フォント -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
