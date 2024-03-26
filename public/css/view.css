@@ -1,0 +1,118 @@
+@charset "utf-8";
+
+#view {
+    display: flex;
+    margin: 32px 15vw;
+}
+
+#view .left-side {
+    width: 50%;
+}
+
+#view .left-side img {
+    width: 100%;
+    margin: 0;
+    border: 1px solid lightgray;
+}
+
+#view .right-side {
+    width: 50%;
+    padding-left: 32px;
+    text-align: center;
+}
+
+#view h1 {
+    margin: 0 0 24px 0;
+    font-size: 40px;
+    line-height: 40px;
+}
+
+#view .h1-smaller {
+    display: inline-block;
+    font-weight: 500;
+    font-size: 24px;
+}
+
+#view table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#view tr {
+    height: 56px;
+    border-top: 1px solid silver;
+    border-bottom: 1px solid silver;
+}
+
+#view th {
+    padding-left: 56px;
+    color: gray;
+    font-weight: normal;
+    font-size: 20px;
+    text-align: left;
+}
+
+#view td {
+    padding-right: 56px;
+    font-weight: 500;
+    font-size: 24px;
+    text-align: right;
+}
+
+#view td span {
+    font-weight: normal;
+    font-size: 16px;
+}
+
+#view .button-container {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 32px;
+}
+
+/* ここからボタン */
+#view .btn-back {
+    margin-top: 32px;
+    border: 1px solid lightgray;
+    background-color: white;
+    color: black;
+    font-size: 16px;
+}
+
+#view .btn-back::before {
+    content:"arrow_back_ios";
+    font-family:"Material Symbols Outlined";
+    
+    margin-right: 3px;
+    font-size: 20px;
+    vertical-align: -4px;
+}
+
+#view .btn-edit {
+    background-color: var(--blue);
+    color: white;
+}
+
+#view .btn-edit::before {
+    content:"edit";
+    font-family:"Material Symbols Outlined";
+
+    margin-right: 8px;
+    font-size: 24px;
+    vertical-align: -6px;
+}
+
+#view .btn-delete {
+    background-color: var(--red);
+    color: white;
+}
+
+#view .btn-delete::before {
+    content:"delete";
+    font-family:"Material Symbols Outlined";
+
+    margin-right: 8px;
+    font-size: 24px;
+    vertical-align: -6px;
+}
+/* ここまでボタン */
