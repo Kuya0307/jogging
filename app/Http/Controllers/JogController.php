@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\Jogging;
+use App\Models\report;
 use Illuminate\Support\Facades\Storage;
 
 class JogController extends Controller
@@ -85,7 +86,9 @@ class JogController extends Controller
 
     public function config()
     {
-
-        return view('config');
+        $distance = Report::where('genre', 0)->get();
+        $time = report::where('genre', 1)->get();
+        $calorie = report::where('genre', 2)->get();
+        return view('config', ['distance' => $distance, 'time' => $time, 'calorie' => $calorie]);
     }
 }
