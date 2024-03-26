@@ -167,17 +167,24 @@
             if (i === firstDayIndex + daysInMonth) {
                 break;
             }
-            if (i < firstDayIndex || day > daysInMonth) {
-                list_table += '<tr><td></td></tr>';
-            } else {
-                list_table += '<tr><td><a href="/view?year=' + year + '&month=' + month + '&day=' + day + '">' + day + '</a></td>' +
-                         '<td>[場所アイコン]</td>' +
-                         '<td>[距離]<span>km</span></td>' +
-                         '<td>[時間]</td>' +
-                         '<td>[消費カロリー]<span>kcal</span></td>' +
-                         '<td>[編集アイコン][削除アイコン]</td></tr>';
-                day++;
-            }
+
+            let jogData = @json($jog_data);
+            jogData.forEach(jog => {
+                let jogDate = new Date(jog.date);
+                let jogYear = jogDate.getFullYear();
+                let jogMonth = jogDate.getMonth() + 1; // 月は0から11で表されるため、1を加える
+                let jogDay = jogDate.getDate();
+                
+                if (year === jogYear && month === jogMonth && day === jogDay) {
+                    list_table += '<tr><td><a href="/view?year=' + jogYear + '&month=' + jogMonth + '&day=' + jogDay + '">' + jogYear + '/' + jogMonth + '/' + jogDay + '</a></td>' +
+                                '<td>[場所アイコン]</td>' +
+                                '<td>[距離]<span>km</span></td>' +
+                                '<td>[時間]</td>' +
+                                '<td>[消費カロリー]<span>kcal</span></td>' +
+                                '<td>[編集アイコン][削除アイコン]</td></tr>';
+                }
+            });
+            day++;
         }
 
         calendarBody.innerHTML = list_table;

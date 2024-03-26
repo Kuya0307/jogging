@@ -17,7 +17,8 @@ class JogController extends Controller
     public function month_look(){
         $year = date('Y');
         $month = date('n');
-        return view('month_look',['year' => $year, 'month' => $month]);
+        $jog_data = Jogging::where('user_id','1')->where('delete_flag','0')->get();
+        return view('month_look',['year' => $year, 'month' => $month,'jog_data' => $jog_data]);
     }
 
     public function jog_reg()
