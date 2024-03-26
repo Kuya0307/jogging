@@ -52,6 +52,6 @@ td{
  
 
 .btn-submit{
-    background-color: #00BFFF;
+    background-color: var(--blue);
     color: white;
 }
