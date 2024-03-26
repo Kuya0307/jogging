@@ -16,6 +16,7 @@
             <h1>
                 {{$jog->date}}<span class="h1-smaller">の記録</span>
             </h1>
+
             <table>
                 @if($jog->jog_env == 0)
                 <tr>
