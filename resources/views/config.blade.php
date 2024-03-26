@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.jogging')
 
-@section('config'','設定')
+@section('config','設定')
 
 @section('content')
     @section('header')

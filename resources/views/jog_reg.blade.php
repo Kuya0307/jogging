@@ -51,7 +51,7 @@
                 <td><input type="file" name="files"></td>
             </tr>
             </table>
-         
+
             <button class="cancel" type="reset">キャンセル</button>
             <button class="btn-primary" type="submit">登録</button>
         </form>
