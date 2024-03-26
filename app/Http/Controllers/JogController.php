@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\Storage;
 
 class JogController extends Controller
 {
-    public function user_reg(){
+    public function user_reg()
+    {
         return view('user_reg');
     }
 
@@ -19,17 +20,19 @@ class JogController extends Controller
         return view('month_look',['year' => $year, 'month' => $month]);
     }
 
-    public function jog_reg(){
+    public function jog_reg()
+    {
         return view('jog_reg');
     }
 
-    public function jog_create(Request $request){
-        $this->validate($request,Jogging::$rules,Jogging::$messages);
+    public function jog_create(Request $request)
+    {
+        $this->validate($request, Jogging::$rules, Jogging::$messages);
         //画像があるときパスを保存、ないなら「no image」と保存
         if($request->hasFile('course_img_pass')){
             $file = $request->file('course_img_pass');
             $file_name = $file->getClientOriginalName();
-        }else{
+        } else {
             $file_name = "no image";
         }
         $Jogging = new Jogging;
@@ -42,8 +45,8 @@ class JogController extends Controller
         $Jogging->delete_flag = 0;
         $Jogging->course_img_pass = $file_name;
         $Jogging->save();
-        $file->storeAs('public',$file_name);
-        return redirect('/month_look');//理想は前にいた画面にリダイレクトしたいが、一旦これで。
+        $file->storeAs('public', $file_name);
+        return redirect('/month_look'); //理想は前にいた画面にリダイレクトしたいが、一旦これで。
     }
     public function view(Request $request){
         //日付とユーザで一致
@@ -53,16 +56,33 @@ class JogController extends Controller
         }
         return view('view',['jog_data'=>$jog_data]);
     }
-
-    public function edit(){
-        return view('edit');
+    #編集機能
+    public function edit(Request $request)
+    {
+        $jogging = Jogging::where('id', $request->id)->first();
+        return view('edit', ['jogging' => $jogging]);
     }
-
-    public function report(){
+    #編集機能の作成
+    public function edit_function(Request $request)
+    {
+        $param = [
+            'date' => $request->date,
+            'jog_env' => $request->jog_env,
+            'distance' => $request->distance,
+            'jog_time' => $request->jog_time,
+            'calorie' => $request->calorie,
+            'course_img_pass' => $request->course_img_pass,
+        ];
+        Jogging::where('ID', $request->id)->update($param);
+        return redirect('/month_look');
+    }
+    public function report()
+    {
         return view('report');
     }
 
-    public function config(){
+    public function config()
+    {
         return view('config');
     }
 }

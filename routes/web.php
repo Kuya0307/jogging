@@ -17,7 +17,7 @@ use App\Http\Controllers\JogController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::controller(JogController::class)->group(function(){
+Route::controller(JogController::class)->group(function () {
     Route::get('login', 'login');
     Route::get('user_reg', 'user_reg');
     Route::get('month_look', 'month_look');
@@ -25,9 +25,14 @@ Route::controller(JogController::class)->group(function(){
     Route::post('jog_create', 'jog_create');
     Route::get('view', 'view');
     Route::get('edit', 'edit');
+    Route::post('edit_function', 'edit_function')->name('edit_function');
     Route::get('report', 'report');
     Route::get('config', 'config');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 

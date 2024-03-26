@@ -1,6 +1,6 @@
 @extends('layouts.jogging')
 
-@section('month_look','月別一覧画面')
+@section('month_look','月別一覧')
 
 @section('content')
     @section('header')
