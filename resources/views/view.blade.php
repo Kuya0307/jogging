@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.jogging')
 
 @section('view','情報閲覧')
 
@@ -9,12 +9,12 @@
         @foreach($jog_data as $jog)
         <div>
         <img src="{{asset('storage/' . $jog->course_img_pass)}}">
-            <a>戻る</a>
+            <a class="btn-back">戻る</a>
         </div>
 
         <div>
             <h1>
-                {{$jog->date}}<span>の記録</span>
+                {{$jog->date}}<span class="h1-smaller">の記録</span>
             </h1>
             @if($jog->jog_env == 0)
                 <p>場所<span>屋内</span></p>
@@ -25,7 +25,7 @@
             <p>時間<span>{{$jog->jog_time}}</span></p>
             <p>消費カロリー<span>{{$jog->calorie}}<span>kcal<span></span></p>
             <a class="btn-edit">編集</a>
-            <a class="btn-edit">削除</a>
+            <a class="btn-delete">削除</a>
         </div>
         @endforeach
     </main>
