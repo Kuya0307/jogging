@@ -65,6 +65,7 @@
 #config .theme-container {
     display: flex;
     justify-content: space-evenly;
+    color: var(--main-text);
 }
 
 #config img {
