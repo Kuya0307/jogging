@@ -9,9 +9,11 @@ const theme = radio.value;
 if (theme === 'right') {
 // ライトモード用の色を設定
 document.documentElement.setAttribute('theme', 'light');
+console.log('light');
 } else {
 // ダークモード用の色を設定
 document.documentElement.setAttribute('theme', 'dark');
+console.log('dark');
 }
 });
 });

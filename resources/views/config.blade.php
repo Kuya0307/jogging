@@ -1,7 +1,6 @@
 @extends('layouts.jogging')
 
 @section('config','設定')
-<script src="{{ asset('js/script.js') }}"></script>
 @section('content')
 @section('header')
 @endsection
@@ -15,19 +14,19 @@
                     <label>
                         <img src="#"><br>
                         ライト<br>
-                        <input type="radio" name="theme" value="light-theme">
+                        <input type="radio" name="theme" value="right">
                     </label>
                 </div>
                 <div class="dark-theme">
                     <label>
                         <img src="#"><br>
                         ダーク<br>
-                        <input type="radio" name="theme" value="dark-theme">
+                        <input type="radio" name="theme" value="dark">
                     </label>
                 </div>
             </div>
         </section>
-
+        <script src="{{ asset('js/script.js') }}"></script>
         <section>
             <h2 class="title-report">レポート</h2>
             <table>

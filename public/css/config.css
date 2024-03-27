@@ -1,5 +1,25 @@
 @charset "utf-8";
-
+:root {
+    --main-text: #000000;
+    --main-bg: #ffffff;
+    --btn-color: #a9a9a9;
+  }
+  
+  /* ダークモード用の色を設定 */
+  :root[theme="dark"] {
+    --main-text: #ffffff;
+    --main-bg: #000000;
+    --btn-color: #32ed6a;
+  }
+  
+  body {
+    color: var(--main-text);
+    background-color: var(--main-bg);
+  }
+  
+  .btn {
+    background-color: var(--btn-color);
+  }
 #config {
     margin: 32px 20vw;
     text-align: center;
