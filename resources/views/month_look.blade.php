@@ -171,32 +171,59 @@
 
         let list_table = ''; // テーブルを初期化
         let day = 1;
+        let jogData = @json($jog_data);
+
+        // 日付ごとにソートされたデータを生成
+        let sortedData = [];
         for (let i = 0; i < 42; i++) {
             if (i === firstDayIndex + daysInMonth) {
                 break;
             }
 
-            let jogData = @json($jog_data);
-            console.log(jogData);
             jogData.forEach(jog => {
                 let jogDate = new Date(jog.date);
                 let jogYear = jogDate.getFullYear();
                 let jogMonth = jogDate.getMonth() + 1; // 月は0から11で表されるため、1を加える
                 let jogDay = jogDate.getDate();
-                if(year === jogYear && month === jogMonth && day === jogDay) {
-                    let locationIcon = (jog.jog_env === 0) ? '[室内アイコン]' : '[室外アイコン]';
-                    list_table += '<tr><td><a href="/view?year=' + jogYear + '&month=' + jogMonth + '&day=' + jogDay + '">' + jogYear + '/' + jogMonth + '/' + jogDay + '</a></td>' +
-                                '<td>' + locationIcon + '</td>' +
-                                '<td>' + jog.distance + '<span>km</span></td>' +
-                                '<td>' + jog.jog_time + '</td>' +
-                                '<td>' + jog.calorie + '<span>kcal</span></td>' +
-                                '<td>[編集アイコン][削除アイコン]</td></tr>';
+                if (year === jogYear && month === jogMonth && day === jogDay) {
+                    sortedData.push(jog);
                 }
             });
             day++;
         }
 
+        // 距離で昇順にソート(a - bで昇順、b - aで降順)
+        // sortedData.sort((a, b) => a.distance - b.distance);
+        //カロリーで昇順にソート
+        // sortedData.sort((a, b) => a.calorie - b.calorie);
+        // Sort the data by jog_time in ascending order
+        sortedData.sort((a, b) => {
+            const timeA = convertTimeToSeconds(a.jog_time);
+            const timeB = convertTimeToSeconds(b.jog_time);
+            return timeA - timeB;
+        });
+
+        function convertTimeToSeconds(time) {
+            const [hours, minutes, seconds] = time.split(':');
+            return (parseInt(hours) * 3600) + (parseInt(minutes) * 60) + parseInt(seconds);
+        }
+        // ソートされたデータを表示
+        sortedData.forEach(jog => {
+            let jogDate = new Date(jog.date);
+            let jogYear = jogDate.getFullYear();
+            let jogMonth = jogDate.getMonth() + 1; // 月は0から11で表されるため、1を加える
+            let jogDay = jogDate.getDate();
+            let locationIcon = (jog.jog_env === 0) ? '[室内アイコン]' : '[室外アイコン]';
+            list_table += '<tr><td><a href="/view?year=' + jogYear + '&month=' + jogMonth + '&day=' + jogDay + '">' + jogYear + '/' + jogMonth + '/' + jogDay + '</a></td>' +
+                '<td>' + locationIcon + '</td>' +
+                '<td>' + jog.distance + '<span>km</span></td>' +
+                '<td>' + jog.jog_time + '</td>' +
+                '<td>' + jog.calorie + '<span>kcal</span></td>' +
+                '<td>[編集アイコン][削除アイコン]</td></tr>';
+        });
+
         calendarBody.innerHTML = list_table; // テーブルをHTMLに設定
+
     }
 
     // 初期表示
