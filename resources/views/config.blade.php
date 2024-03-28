@@ -51,7 +51,7 @@
                         <span id="distance">{{ $distance_minus_time }}</span>
                     </td>
                 </tr>
-                <tr>
+                <tr id="place">
                     <th>目的地</th>
                     <td>
                         <select name="destination" class="right-align">

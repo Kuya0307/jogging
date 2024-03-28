@@ -21,6 +21,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/all_style.css">
     <link rel="stylesheet" href="css/view.css">
+    <link rel="stylesheet" href="css/report.css">
     <link rel="stylesheet" href="css/config.css">
 
 
