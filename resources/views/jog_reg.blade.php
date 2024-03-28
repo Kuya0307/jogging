@@ -53,6 +53,7 @@
             </tr>
             </table>
 
+
             <button class="btn btn-cancel" type="reset">キャンセル</button>
             <button class="btn btn-submit" type="submit">登録</button>
         </form>

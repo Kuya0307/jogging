@@ -29,6 +29,7 @@ Route::controller(JogController::class)->group(function () {
     Route::get('report', 'report');
     Route::get('config', 'config');
 });
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

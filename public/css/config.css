@@ -1,0 +1,171 @@
+@charset "utf-8";
+:root {
+    --main-text: #4A4A4A;
+    --main-bg: #EFEFEF;
+    --sub-text: #8C8C8C;
+  
+  }
+  
+  /* ダークモード用の色を設定 */
+  :root[theme="dark"] {
+    --main-text: white;
+    --main-bg: #4A4A4A;
+    --sub-text: white;
+ 
+
+  }
+  
+  body {
+    color: var(--main-color);
+    background-color: var(--main-bg);
+  }
+  
+
+#config {
+    margin: 32px 20vw;
+    text-align: center;
+}
+
+#config h1 {
+    text-align: center;
+    margin: 0 0 32px 0;
+    color: var(--main-text);
+}
+
+
+
+#config section {
+    margin-bottom: 64px;
+}
+
+#config h2 {
+    background-color: lightgray;
+    text-align: left;
+    padding: 4px 0 4px 4vw;
+    margin: 32px 0;
+    font-weight: normal;
+}
+
+#config .title-theme::before, 
+#config .title-report::before,
+#config .title-account::before {
+    font-family: "Material Symbols Outlined";
+    font-variation-settings: 'FILL' 1;
+    color: var(--main-color);
+    margin-right: 10px;
+    font-size: 25px;
+    vertical-align: -4px;
+}
+
+/* ここからテーマセクション */
+#config .title-theme::before {
+    content: "palette";
+}
+
+#config .theme-container {
+    display: flex;
+    justify-content: space-evenly;
+    color: var(--main-text);
+}
+
+#config img {
+    width: 15vw;
+    height: 15vw;
+    border: 1px solid lightgray;
+}
+
+#config .theme-container input {
+    accent-color: var(--main-color);
+    transform: scale(2);
+    margin-top: 10px;
+}
+/* ここまでテーマセクション */
+
+/* ここからレポートセクション */
+#config .title-report::before {
+    content: "description";
+}
+
+#config table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#config tr {
+    height: 40px;
+}
+
+#config th {
+    padding-left: 7vw;
+    color: var(--sub-text);
+    font-weight: normal;
+    font-size: 20px;
+    text-align: left;
+}
+
+#config td {
+    padding-right: 7vw;
+    text-align: right;
+}
+
+#place{
+    border-bottom: lightgray 1px solid;
+}
+
+#config select {
+    font-size: 16px;
+}
+/* ここまでレポートセクション */
+
+/* ここからアカウントセクション */
+#config .title-account::before {
+    content: "person";
+}
+
+#config .btn-logout, 
+#config .btn-delete {
+    width: 250px;
+}
+
+#config .btn-logout {
+    color: var(--red);
+    margin-bottom: 32px;
+}
+
+#config .btn-logout::before {
+    content:"logout";
+}
+
+#config .btn-delete {
+    background-color: var(--red);
+    color: white;
+    margin-bottom: 16px;
+    border: none;
+}
+
+#config .btn-delete::before {
+    content:"delete";
+}
+
+#config .btn-logout::before, 
+#config .btn-delete::before {
+    font-family:"Material Symbols Outlined";
+    margin-right: 8px;
+    font-size: 24px;
+    vertical-align: -6px;
+}
+
+#config .button-container {
+    display: flex;
+    justify-content: space-evenly;
+    width: 70%;
+    margin: 0 auto 70px;
+    border: none;
+}
+
+#config .btn-update {
+    background-color: var(--blue);
+    color: white;
+    border: none;
+}
+/* ここまでアカウントセクション */

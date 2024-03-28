@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\Jogging;
+use App\Models\report;
 use Illuminate\Support\Facades\Storage;
 
 class JogController extends Controller
@@ -16,7 +17,9 @@ class JogController extends Controller
 
     public function month_look()
     {
-        return view('month_look');
+        $year = date('Y');
+        $month = date('n');
+        return view('month_look', ['year' => $year, 'month' => $month]);
     }
 
     public function jog_reg()
@@ -28,7 +31,7 @@ class JogController extends Controller
     {
         $this->validate($request, Jogging::$rules, Jogging::$messages);
         //画像があるときパスを保存、ないなら「no image」と保存
-        if ($request->hasFile('course_image_pass')) {
+        if ($request->hasFile('course_img_pass')) {
             $file = $request->file('course_img_pass');
             $file_name = $file->getClientOriginalName();
         } else {
@@ -47,10 +50,13 @@ class JogController extends Controller
         $file->storeAs('public', $file_name);
         return redirect('/month_look'); //理想は前にいた画面にリダイレクトしたいが、一旦これで。
     }
-    public function view()
+    public function view(Request $request)
     {
         //日付とユーザで一致
-        $jog_data = Jogging::where('user_id', 1)->where('date', '2024-03-21')->get();
+        $jog_data = Jogging::where('user_id', 1)->where('date', $request->year . '-' . $request->month . '-' . $request->day)->where('delete_flag', '0')->get();
+        if (count($jog_data) == 0) {
+            return redirect('/month_look');
+        }
         return view('view', ['jog_data' => $jog_data]);
     }
     #編集機能
@@ -80,6 +86,9 @@ class JogController extends Controller
 
     public function config()
     {
-        return view('config');
+        $distance = Report::where('genre', 0)->get();
+        $time = report::where('genre', 1)->get();
+        $calorie = report::where('genre', 2)->get();
+        return view('config', ['distance' => $distance, 'time' => $time, 'calorie' => $calorie]);
     }
 }
