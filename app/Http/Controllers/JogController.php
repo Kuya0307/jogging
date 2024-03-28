@@ -116,4 +116,13 @@ class JogController extends Controller
         User::where('id', 1)->update($param);
         return redirect('/config');
     }
+    public function del_account($id)
+    {
+        $user = User::find($id);
+        if (!$user) {
+            return redirect()->back()->with('error', 'ユーザーが見つかりませんでした');
+        }
+        $user->delete();
+        return redirect('/login');
+    }
 }

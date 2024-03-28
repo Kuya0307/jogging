@@ -98,8 +98,8 @@
 
         <section>
             <h2 class="title-account">アカウント</h2>
-            <a href="#" class="btn btn-logout">ログアウト</a><br>
-            <a href="#" class="btn btn-delete">アカウントを削除する</a><br>
+            <a href="{{ route('logout') }}" class="btn btn-logout">ログアウト</a><br>
+            <a href="{{ route('del_account',['id' => $user->id]) }}" class="btn btn-delete">アカウントを削除する</a><br>
             <span class="txt-red">この操作は取り消せません</span>
         </section>
 

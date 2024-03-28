@@ -29,6 +29,7 @@ Route::controller(JogController::class)->group(function () {
     Route::get('report', 'report');
     Route::get('config', 'config');
     Route::post('config_update', 'config_update')->name('config_update');
+    Route::get('del_account/{id}', 'del_account')->name('del_account');
 });
 
 Auth::routes();
