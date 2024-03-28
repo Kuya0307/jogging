@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="css/view.css">
     <link rel="stylesheet" href="css/report.css">
     <link rel="stylesheet" href="css/config.css">
+    <link rel="stylesheet" href="css/jog_form.css">
 
 
     <!-- フォント -->
