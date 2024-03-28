@@ -28,11 +28,8 @@ Route::controller(JogController::class)->group(function () {
     Route::post('edit_function', 'edit_function')->name('edit_function');
     Route::get('report', 'report');
     Route::get('config', 'config');
+    Route::post('config_update', 'config_update')->name('config_update');
 });
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 
