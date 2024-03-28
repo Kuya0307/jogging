@@ -1,7 +1,6 @@
 @extends('layouts.jogging')
 
-@section('title','ページのタイトル')
-
+@section('jog_form','編集')
 @section('content')
     @section('header')
     @endsection
@@ -48,7 +47,7 @@
 
 
             <input type="hidden" name="id" value="{{ $jogging->ID }}">
-            <button class="btn" type="reset">キャンセル</button>
+            <button class="btn btn-cancel" type="reset">キャンセル</button>
             <button class="btn btn-submit" type="submit">更新</button>
     </form>
 </main>

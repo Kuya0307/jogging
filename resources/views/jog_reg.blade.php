@@ -1,6 +1,6 @@
 @extends('layouts.jogging')
 
-@section('title','ページのタイトル')
+@section('jog_form','登録')
 
 @section('content')
     @section('header')
@@ -53,7 +53,8 @@
             </tr>
             </table>
 
-            <button class="btn" type="reset">キャンセル</button>
+
+            <button class="btn btn-cancel" type="reset">キャンセル</button>
             <button class="btn btn-submit" type="submit">登録</button>
         </form>
     </main>

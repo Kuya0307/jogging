@@ -6,6 +6,11 @@
     text-align: center;
 }
 
+#jog_reg h1,
+#edit h1{
+    text-align: center;
+}
+
 #jog_reg{
     max-width: 600px;
     margin: auto;
@@ -56,6 +61,10 @@
     padding-right: 4rem;
 }
  
+
+.btn-cancel{
+    margin: 2rem 1rem 0 11rem;
+}
 
 .btn-submit{
     background-color: var(--blue);
