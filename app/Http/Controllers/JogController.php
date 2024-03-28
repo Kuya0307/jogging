@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\Jogging;
 use App\Models\report;
+use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 
 class JogController extends Controller
@@ -87,8 +88,41 @@ class JogController extends Controller
     public function config()
     {
         $distance = Report::where('genre', 0)->get();
-        $time = report::where('genre', 1)->get();
-        $calorie = report::where('genre', 2)->get();
-        return view('config', ['distance' => $distance, 'time' => $time, 'calorie' => $calorie]);
+        $time = Report::where('genre', 1)->get();
+        $calorie = Report::where('genre', 2)->get();
+        $user_info = User::with(['startingPoint', 'destination'])->find(1);
+        $starting_content = $user_info->startingPoint->con_num ?? 0;
+        $destination_content = $user_info->destination->con_num ?? 0;
+        $distance_minus_time = $destination_content - $starting_content;
+
+        return view('config', [
+            'distance' => $distance,
+            'time' => $time,
+            'calorie' => $calorie,
+            'user' => $user_info,
+            'distance_minus_time' => $distance_minus_time
+        ]);
+    }
+
+
+    public function config_update(Request $request)
+    {
+        $param = [
+            'Starting_id' => $request->origin,
+            'Destination_id' => $request->destination,
+            'time_id' => $request->movie,
+            'calorie_id' => $request->food,
+        ];
+        User::where('id', 1)->update($param);
+        return redirect('/config');
+    }
+    public function del_account($id)
+    {
+        $user = User::find($id);
+        if (!$user) {
+            return redirect()->back()->with('error', 'ユーザーが見つかりませんでした');
+        }
+        $user->delete();
+        return redirect('/login');
     }
 }

@@ -6,7 +6,8 @@
 @endsection
 <main id="config">
     <h1 class="page-title">設定</h1>
-    <form action="#" method="post">
+    <form action="{{ route('config_update') }}" method="post">
+        @csrf
         <section>
             <h2 class="title-theme">テーマ</h2>
             <div class="theme-container">
@@ -34,25 +35,33 @@
                     <th>出発地</th>
                     <td>
                         <select name="origin">
+                            @if ($distance->isEmpty())
+                            <option value="" selected>データがありません</option>
+                            @else
                             @foreach ($distance as $distanced)
-                            <option value="{{ $distanced->ID }}">{{ $distanced->contents }}</option>
+                            <option value="{{ $distanced->ID }}" {{ $distanced->ID == $user->Starting_id ? 'selected' : '' }}>{{ $distanced->contents }}</option>
                             @endforeach
+                            @endif
                         </select>
                     </td>
                 </tr>
                 <tr>
                     <th>(駅間距離)</th>
                     <td>
-                        <span>(計算したものを表示)</span>
+                        <span id="distance">{{ $distance_minus_time }}</span>
                     </td>
                 </tr>
                 <tr id="place">
                     <th>目的地</th>
                     <td>
                         <select name="destination" class="right-align">
+                            @if ($distance->isEmpty())
+                            <option value="" selected>データがありません</option>
+                            @else
                             @foreach ($distance as $distanced)
-                            <option value="{{ $distanced->ID }}">{{ $distanced->contents }}</option>
+                            <option value="{{ $distanced->ID }}" {{ $distanced->ID == $user->Destination_id ? 'selected' : '' }}>{{ $distanced->contents }}</option>
                             @endforeach
+                            @endif
                         </select>
                     </td>
                 </tr>
@@ -60,9 +69,13 @@
                     <th>例に使用する映画</th>
                     <td>
                         <select name="movie" class="right-align">
+                            @if ($time->isEmpty())
+                            <option value="" selected>データがありません</option>
+                            @else
                             @foreach ($time as $times)
-                            <option value="{{ $times->ID }}">{{ $times->contents }}</option>
+                            <option value="{{ $times->ID }}" {{ $times->ID == $user->time_id ? 'selected' : '' }}>{{ $times->contents }}</option>
                             @endforeach
+                            @endif
                         </select>
                     </td>
                 </tr>
@@ -70,9 +83,13 @@
                     <th>例に使用する食べ物</th>
                     <td>
                         <select name="food" class="right-align">
+                            @if ($calorie->isEmpty())
+                            <option value="" selected>データがありません</option>
+                            @else
                             @foreach ($calorie as $calories)
-                            <option value="{{ $calories->ID }}">{{ $calories->contents }}</option>
+                            <option value="{{ $calories->ID }}" {{ $calories->ID == $user->calorie_id ? 'selected' : '' }}>{{ $calories->contents }}</option>
                             @endforeach
+                            @endif
                         </select>
                     </td>
                 </tr>
@@ -81,8 +98,8 @@
 
         <section>
             <h2 class="title-account">アカウント</h2>
-            <a href="#" class="btn btn-logout">ログアウト</a><br>
-            <a href="#" class="btn btn-delete">アカウントを削除する</a><br>
+            <a href="{{ route('logout') }}" class="btn btn-logout">ログアウト</a><br>
+            <a href="{{ route('del_account',['id' => $user->id]) }}" class="btn btn-delete">アカウントを削除する</a><br>
             <span class="txt-red">この操作は取り消せません</span>
         </section>
 
