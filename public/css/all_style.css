@@ -22,6 +22,14 @@ body {
 }
 
 /* ここからヘッダー */
+
+
+ /* ダークモード用の色を設定 */
+ :root[theme="dark"] {
+    --main-color: black;
+  }
+
+
 header {
     display: flex;
 	align-items:center;
