@@ -152,7 +152,8 @@
 <script>
     let currentYear_list = {{ $year }};
     let currentMonth_list = {{ $month }};
-
+    let up_date_bool = false;
+    let down_date_bool = false
     function generateList(year, month) {
         currentYear_list = year;
         currentMonth_list = month;
@@ -191,22 +192,77 @@
             });
             day++;
         }
-
-        // 距離で昇順にソート(a - bで昇順、b - aで降順)
-        // sortedData.sort((a, b) => a.distance - b.distance);
-        //カロリーで昇順にソート
-        // sortedData.sort((a, b) => a.calorie - b.calorie);
-        // Sort the data by jog_time in ascending order
-        sortedData.sort((a, b) => {
-            const timeA = convertTimeToSeconds(a.jog_time);
-            const timeB = convertTimeToSeconds(b.jog_time);
-            return timeA - timeB;
-        });
-
-        function convertTimeToSeconds(time) {
-            const [hours, minutes, seconds] = time.split(':');
-            return (parseInt(hours) * 3600) + (parseInt(minutes) * 60) + parseInt(seconds);
+        //日付のソート
+    var sort_date = document.getElementsByClassName('sort_date');
+    var sort_date_down = document.getElementById('sort_date_down');
+    var sort_date_up = document.getElementById('sort_date_up');
+    // sort_date の各要素に対してループ処理でイベントを追加する
+    for (var i = 0; i < sort_date.length; i++) {
+    sort_date[i].addEventListener('click', function() {
+        // 昇順の場合
+        if (document.getElementById('sort_date_down').style.display !== "none") {
+            document.getElementById('sort_date_down').style.display = "none";
+            document.getElementById('sort_date_up').style.display = "block";
+            up_date_bool = true;
+            down_date_bool = false;
+        // 降順の場合
+        } else if (document.getElementById('sort_date_up').style.display !== "none") {
+            document.getElementById('sort_date_down').style.display = "block";
+            document.getElementById('sort_date_up').style.display = "none";
+            down_date_bool = true;
+            up_date_bool = false;
         }
+        // ソート処理の実行
+        sortJogData(sortedData);
+    });
+}
+
+// ジョギングデータのソートを行う関数
+function sortJogData(sortedData) {
+    if (up_date_bool) {
+        console.log("昇順ソートの関数" + up_date_bool);
+        sortedData.sort((a, b) => {
+        console.log("昇順ソートの関数" + up_date_bool);
+            const dateA = new Date(a.date);
+            const dateB = new Date(b.date);
+            return dateA - dateB;
+        });
+    } else if (down_date_bool) {
+        console.log("降順ソートの関数" + down_date_bool);
+        sortedData.sort((a, b) => {
+        console.log("降順ソートの関数" + down_date_bool);
+            const dateA = new Date(a.date);
+            const dateB = new Date(b.date);
+            return dateB - dateA;
+        });
+    }
+}
+
+        // // 距離で昇順にソート(a - bで昇順、b - aで降順)
+        // sortedData.sort((a, b) => a.distance - b.distance);
+        // // 距離で降順にソート(a - bで昇順、b - aで降順)
+        // sortedData.sort((a, b) => b.distance - a.distance);
+        // //カロリーで昇順にソート
+        // sortedData.sort((a, b) => a.calorie - b.calorie);
+        // //カロリーで降順にソート
+        // sortedData.sort((a, b) => b.calorie - a.calorie);
+        // // 時間で昇順にソート
+        // sortedData.sort((a, b) => {
+        //     const timeA = convertTimeToSeconds(a.jog_time);
+        //     const timeB = convertTimeToSeconds(b.jog_time);
+        //     return timeA - timeB;
+        // });
+        // // 時間で降順にソート
+        // sortedData.sort((a, b) => {
+        //     const timeA = convertTimeToSeconds(a.jog_time);
+        //     const timeB = convertTimeToSeconds(b.jog_time);
+        //     return timeB - timeA;
+        // });
+        // // 時間を秒に変換
+        // function convertTimeToSeconds(time) {
+        //     const [hours, minutes, seconds] = time.split(':');
+        //     return (parseInt(hours) * 3600) + (parseInt(minutes) * 60) + parseInt(seconds);
+        // }
         // ソートされたデータを表示
         sortedData.forEach(jog => {
             let jogDate = new Date(jog.date);
@@ -223,7 +279,6 @@
         });
 
         calendarBody.innerHTML = list_table; // テーブルをHTMLに設定
-
     }
 
     // 初期表示
@@ -272,24 +327,6 @@
             button.textContent = "リスト表示"; // ボタンのテキストを変更
         }
     };
-    //日付のソート
-    var sort_date = document.getElementsByClassName('sort_date');
-    var sort_date_down = document.getElementById('sort_date_down');
-    var sort_date_up = document.getElementById('sort_date_up');
-    // sort_date の各要素に対してループ処理でイベントを追加する
-    for (var i = 0; i < sort_date.length; i++) {
-        sort_date[i].addEventListener('click', function() {
-            // 昇順の場合
-            if (document.getElementById('sort_date_down').style.display !== "none") {
-                document.getElementById('sort_date_down').style.display = "none";
-                document.getElementById('sort_date_up').style.display = "block";
-            // 降順の場合
-            } else {
-                document.getElementById('sort_date_down').style.display = "block";
-                document.getElementById('sort_date_up').style.display = "none";
-            }
-        });
-    }
     //場所のソート
     var sort_date = document.getElementsByClassName('sort_place');
     var sort_date_down = document.getElementById('sort_place_down');
