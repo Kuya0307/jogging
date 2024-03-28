@@ -29,9 +29,9 @@
             <tr>
                 <th>場所</th>
                 <td>
-                    <select name="place">
-                        <option value="o-place">屋外</option><br>
-                        <option value="i-place">屋内</option><br>
+                    <select name="jog_env">
+                        <option value="1">屋外</option><br>
+                        <option value="0">屋内</option><br>
                     </select><br>
                 </td>
             </tr>
@@ -39,17 +39,18 @@
                 <th>距離<span class="required">*</span></th>
                 <td><input type="number" step="0.01" name="distance" placeholder="例:12.34" required>km<br></td>
             </tr>
-            <tr>
-                <th>時間</th>
-                <td><input type="time" name="time" step="1" value="00:00:00"><br></td>
+
+                <th> 時間  </th>
+                <td><input type="time" name="jog_time"  step="1"><br></td>
             </tr>
             <tr>
-                <th>消費カロリー</th>
-                <td><input type="number" name="kcal" placeholder="例:1234">kcal<br></td>
+                <th> 消費カロリー </th>
+                <td><input type="number" name="calorie" placeholder="例:1234">kcal <br></td>
             </tr> 
             <tr>
-                <th>画像</th>
-                <td><input type="file" name="files"></td>
+                <th> 画像  </th>
+                <td><input type="file" name="course_img_pass"></td>
+n
             </tr>
             </table>
 
