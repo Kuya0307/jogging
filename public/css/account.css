@@ -1,0 +1,127 @@
+@charset "utf-8";
+
+#login main, 
+#login body, 
+#login h1,
+#user_reg main,
+#user_reg body,
+#user_reg h1 {
+    margin: 0;
+}
+
+#login *,
+#user_reg * {
+    font-family: "Noto Serif JP", serif;
+}
+
+#login,
+#user_reg {
+    background-color: var(--sub-color);
+    color: var(--text-color);
+    text-align: center;
+
+    display:flex;
+	justify-content:center;
+}
+
+#login::before,
+#user_reg::before {
+    /* 横線 */
+    content: "";
+    width: 100%;
+    position: absolute;
+    border-bottom: 1px solid var(--text-color);
+    bottom: 10%;
+}
+
+#login::after,
+#user_reg::after {
+    /* 縦線 */
+    content: "";
+    height: 100%;
+    position: absolute;
+    border-right: 1px solid var(--text-color);
+    right: 20%;
+}
+
+#login div,
+#user_reg div {
+    width: 60vw;
+}
+
+#login .page-title,
+#user_reg .page-title {
+    margin: 32px auto 20px auto;
+    padding-bottom: 20px;
+    width: 60%;
+    font-size: 56px;
+    line-height: 56px;
+    font-weight: normal;
+    border-bottom: 1px solid var(--text-color);
+}
+
+#login form,
+#user_reg form {
+    margin-bottom: 20px;
+}
+
+#login table,
+#user_reg table {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#login tr,
+#user_reg tr {
+    height: 40px;
+}
+
+#login th,
+#user_reg th {
+    width: 40%;
+    text-align: right;
+    font-size: 32px;
+    font-weight: normal;
+}
+
+#login td,
+#user_reg td {
+    text-align: left;
+}
+
+#login input,
+#user_reg input {
+    margin-left: 10px;
+    padding-left: 10px;
+    width: 60%;
+    font-size: 32px;
+}
+
+#login ::placeholder,
+#user_reg ::placeholder {
+    color: #c5c5c5;
+}
+
+#login button,
+#user_reg button {
+    width: 45%;
+    height: 60px;
+    background-color: var(--main-color);
+    color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    font-size: 32px;
+    transition: 0.5s;
+}
+
+#login button:hover,
+#user_reg button:hover {
+    background-color: var(--blue);
+    border: none;
+}
+
+#login a,
+#user_reg a {
+    color: var(--text-color);
+    font-size: 20px;
+}

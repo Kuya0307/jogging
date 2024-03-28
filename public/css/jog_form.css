@@ -66,11 +66,13 @@
 }
 
 
-.btn-cancel{
+#jog_reg .btn-cancel,
+#edit .btn-cancel {
     margin: 2rem 1rem 0 11rem;
 }
 
-.btn-submit{
+#jog_reg .btn-submit,
+#edit .btn-submit {
     background-color: var(--blue);
     color: white;
 }

@@ -1,7 +1,27 @@
-@extends('layouts.app')
+@extends('layouts.jogging')
 
 @section('content')
-<div class="container">
+<main id="login">
+    <div>
+        <h1 class="page-title">Login</h1>
+        <form action="#" method="post">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <td><input type="text" name="id" placeholder="IDを入力" required></td>
+                </tr>
+                <tr>
+                    <th>Password</th>
+                    <td><input type="text" name="pw" placeholder="Passwordを入力" required></td>
+                </tr>
+            </table>
+
+            <button type="submit">Login</button>
+        </form>
+        <a href="register">Create New Account</a>
+    </div>
+</main>
+<!-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -69,5 +89,5 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 @endsection
