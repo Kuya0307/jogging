@@ -50,7 +50,6 @@
             <tr>
                 <th> 画像  </th>
                 <td><input type="file" name="course_img_pass"></td>
-n
             </tr>
             </table>
 
