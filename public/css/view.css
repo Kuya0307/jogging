@@ -40,13 +40,13 @@
 
 #view tr {
     height: 56px;
-    border-top: 1px solid silver;
-    border-bottom: 1px solid silver;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
 }
 
 #view th {
     padding-left: 56px;
-    color: gray;
+    color: var(--sub-text-color);
     font-weight: normal;
     font-size: 20px;
     text-align: left;

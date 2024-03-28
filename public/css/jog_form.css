@@ -23,8 +23,12 @@
 }
 
 
-#jog_reg table,th, td,
-#edit table,th, td {
+#jog_reg table,
+#jog_reg th,
+#jog_reg td,
+#edit table,
+#edit th, 
+#edit td {
     border-top: solid 1px lightgray;
     border-bottom: solid 1px lightgray;
     padding: 10px;
@@ -55,7 +59,7 @@
 #edit td{
     padding-right: 4rem;
 }
- 
+
 
 .btn-submit{
     background-color: var(--blue);

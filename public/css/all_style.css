@@ -6,10 +6,21 @@
 }
 
 :root {
-    --main-color: #4A4A4A;
-    --sub-color:#EFEFEF;
+    --main-color: #4a4a44;
+    --sub-color:#efefef;
+    --text-color: #000000;
+    --sub-text-color: #8c8c8c;
     --blue: #00b2ff;
     --red: #ff4b00;
+}
+
+
+ /* ダークモード用の色を設定 */
+:root[theme="dark"] {
+    --main-color: #000000;
+    --sub-color: #4a4a4a;
+    --text-color: #ffffff;
+    --sub-text-color: #d3d3d3;
 }
 
 html {
@@ -19,17 +30,10 @@ html {
 body {
     margin: 0;
     background-color: var(--sub-color);
+    color: var(--text-color);
 }
 
 /* ここからヘッダー */
-
-
- /* ダークモード用の色を設定 */
- :root[theme="dark"] {
-    --main-color: black;
-  }
-
-
 header {
     display: flex;
 	align-items:center;
@@ -103,6 +107,7 @@ header .right-side .user-menu .user-name {
     font-size: 16px;
     text-decoration: none;
     text-align: center;
+    cursor: pointer;
 }
 
 .btn:active {

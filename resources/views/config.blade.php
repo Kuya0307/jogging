@@ -46,7 +46,7 @@
                         <span>(計算したものを表示)</span>
                     </td>
                 </tr>
-                <tr id="place">
+                <tr class="place">
                     <th>目的地</th>
                     <td>
                         <select name="destination" class="right-align">

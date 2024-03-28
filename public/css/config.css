@@ -1,25 +1,4 @@
 @charset "utf-8";
-:root {
-    --main-text: #4A4A4A;
-    --main-bg: #EFEFEF;
-    --sub-text: #8C8C8C;
-  
-  }
-  
-  /* ダークモード用の色を設定 */
-  :root[theme="dark"] {
-    --main-text: white;
-    --main-bg: #4A4A4A;
-    --sub-text: white;
- 
-
-  }
-  
-  body {
-    color: var(--main-color);
-    background-color: var(--main-bg);
-  }
-  
 
 #config {
     margin: 32px 20vw;
@@ -29,10 +8,8 @@
 #config h1 {
     text-align: center;
     margin: 0 0 32px 0;
-    color: var(--main-text);
+    color: var(--text-color);
 }
-
-
 
 #config section {
     margin-bottom: 64px;
@@ -44,6 +21,7 @@
     padding: 4px 0 4px 4vw;
     margin: 32px 0;
     font-weight: normal;
+    color: var(--main-color);
 }
 
 #config .title-theme::before, 
@@ -65,7 +43,7 @@
 #config .theme-container {
     display: flex;
     justify-content: space-evenly;
-    color: var(--main-text);
+    color: var(--text-color);
 }
 
 #config img {
@@ -97,7 +75,7 @@
 
 #config th {
     padding-left: 7vw;
-    color: var(--sub-text);
+    color: var(--sub-text-color);
     font-weight: normal;
     font-size: 20px;
     text-align: left;
@@ -108,7 +86,7 @@
     text-align: right;
 }
 
-#place{
+#config .place {
     border-bottom: lightgray 1px solid;
 }
 
