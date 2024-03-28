@@ -1,7 +1,13 @@
 @charset "UTF-8";
 
 
-body{
+#jog_reg body,
+#edit body{
+    text-align: center;
+}
+
+#jog_reg h1,
+#edit h1{
     text-align: center;
 }
 
@@ -16,12 +22,14 @@ body{
     margin: auto;
 }
 
-span {
-    color: red;
+.required {
+    color: var(--red);
+    margin-left: 5px;
 }
 
 
-table,th, td {
+#jog_reg table,th, td,
+#edit table,th, td {
     border-top: solid 1px lightgray;
     border-bottom: solid 1px lightgray;
     padding: 10px;
@@ -29,14 +37,17 @@ table,th, td {
 }
 
 
-table{
+#jog_reg table,
+#edit table{
     margin-top: 3rem;
     width: 100%;
     table-layout: fixed;
+    
 }
 
 
-th{
+#jog_reg th,
+#edit th{
     font-size: 20px;
     font-weight: normal;
     text-align: left;
@@ -45,27 +56,17 @@ th{
     color: rgb(167, 166, 166);
 }
 
-td{
+#jog_reg td,
+#edit td{
     padding-right: 4rem;
 }
  
-.cancel{
-    margin-top: 3rem;
-    margin-right: 2rem;
-    border-radius: 20px;
-    border: solid 1px darkgray;
-    background-color: white;
-    font-size: 15px;
-    width: 7rem;
-    height: 2.5rem;
+.btn-cancel{
+    margin: 2rem 1rem 0 11rem;
 }
 
-.btn-primary{
-    border-radius: 20px;
-    background-color: #00BFFF;
+
+.btn-submit{
+    background-color: var(--blue);
     color: white;
-    font-size: 15px;
-    border: none;
-    width: 7rem;
-    height: 2.5rem;
 }
