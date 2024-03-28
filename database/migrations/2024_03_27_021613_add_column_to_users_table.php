@@ -13,13 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('report', function (Blueprint $table) {
-            $table->increments('ID');
-            $table->integer('genre');
-            $table->string('contents');
-            $table->integer('con_num');
-            $table->tinyInteger('delete_flag')->default(0);
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->integer('Destination_id')->nullable();
+            $table->integer('Starting_id')->nullable();
+            $table->integer('calorie_id')->nullable();
+            $table->integer('time_id')->nullable();
         });
     }
 
@@ -30,6 +28,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('report');
+        Schema::table('users', function (Blueprint $table) {
+            //
+        });
     }
 };
