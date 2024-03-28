@@ -54,8 +54,8 @@
     margin: 32px auto 20px auto;
     padding-bottom: 20px;
     width: 60%;
-    font-size: 64px;
-    line-height: 64px;
+    font-size: 56px;
+    line-height: 56px;
     font-weight: normal;
     border-bottom: 1px solid var(--text-color);
 }
@@ -91,15 +91,15 @@
 
 #login input,
 #user_reg input {
+    margin-left: 10px;
+    padding-left: 10px;
     width: 60%;
-    margin-left: 20px;
     font-size: 32px;
 }
 
-#login::placeholder,
-#user_reg::placeholder {
-    padding: 10px;
-    color: lightgray;
+#login ::placeholder,
+#user_reg ::placeholder {
+    color: #c5c5c5;
 }
 
 #login button,
@@ -110,7 +110,7 @@
     color: white;
     border: 1px solid black;
     border-radius: 10px;
-    font-size: 30px;
+    font-size: 32px;
     transition: 0.5s;
 }
 

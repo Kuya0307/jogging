@@ -18,17 +18,14 @@
             </h1>
 
             <table>
+                <tr>
+                    <th>場所</th>
                 @if($jog->jog_env == 0)
-                <tr>
-                    <th>場所</th>
                     <td>屋内</td>
-                </tr>
                 @else
-                <tr>
-                    <th>場所</th>
                     <td>屋外</td>
-                </tr>
                 @endif
+                </tr>
                 <tr>
                     <th>距離</th>
                     <td>{{$jog->distance}}<span>km</span></td>
